@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>프로필 페이지</title>
+</head>
+<body>
+    <h1 th:text="'안녕하세요, ' + ${username} + '님!'"></h1>
+    <p th:utext="'안녕하세요, ' + ${username} + '님!'"></p>
+    <p th:if="${isAdult}">성인입니다.</p>
+    <p th:unless="${isAdult}">미성년자입니다.</p>
+    <p th:if="${age >= 19}">19세 이상입니다.</p>
+    <tr th:each="user : ${userList}">
+        <td th:text="${user.key}"></td>
+        <td th:text="${user.value}"></td>
+        </br>
+    </tr>
+    <a th:href="@{/main}">메인페이지로 이동하기</a>
+</body>
+</html>
